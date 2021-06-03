@@ -35,7 +35,7 @@ didMount={async function(component) {
             .then(res=>res.json())
             .then(res=>this.setState({chartData:{apiResponse:res}}))
     console.log(res);
-  
+
     const niveauNappe = Object.values(res.niveau_eau_nappe)
     const dateMesure = Object.keys(res.date_mesure)
     const chartData = [['Niveau Nappe', 'Date Mesure']]

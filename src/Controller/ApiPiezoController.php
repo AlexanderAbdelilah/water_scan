@@ -67,8 +67,8 @@ class ApiPiezoController extends AbstractController
         //[
         return new JsonResponse([
             'piezo' => $Piezodata,
-            'piezovalue'=> $Piezovalue,
-            'piezodate'=> $Piezodate,
+            //'piezovalue'=> $Piezovalue,
+            //'piezodate'=> $Piezodate,
         ]);
         
     }
