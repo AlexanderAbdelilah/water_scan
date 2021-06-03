@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {#<title>{% block title %}Welcome!{% endblock %}</title>#}
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <style type="text/css">
+
+                html,
+                body,
+                #container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                }
+            
+            </style>
+            <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+            <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+        {% endblock %}
+        
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <div id="root"></div>
+    </body>
+</html>

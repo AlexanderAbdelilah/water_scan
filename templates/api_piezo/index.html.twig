@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ApiPiezoController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-core.min.js"></script>
+
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-cartesian.min.js"></script>
+
+
+
+<div class="example-wrapper">
+    <h1>Hello ! ✅</h1>
+
+    <p>{{piezo}}</p>
+    
+</div>
+
+
+
+
+{#CHART.JS TEST#}
+{#<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>#}
+{#//<script>#}
+{#////componentDidMount() {
+////        this.fetchPiezoData();
+////    }
+////    fetchPiezoData = () => {
+////        fetch(`http://localhost:8000/api/piezo`).then(response => response.json()).then(response => {
+////            //to check wether the data is properly fetched :
+////            //console.log(response);
+////            this.setState({
+////                piezo: response.piezo,
+////            })
+////        });
+////    }
+//const labels = [
+//    piezo.date_mesure,
+//  ];
+//const data = {
+//  labels: labels,
+//  datasets: [{
+//    label: 'My First dataset',
+//    backgroundColor: 'rgb(255, 99, 132)',
+//    borderColor: 'rgb(255, 99, 132)',
+//    data: piezo.niveau_nappe_eau,
+//  }]
+//};
+//const config = {
+//  type: 'line',
+//  data,
+//  options: {}
+//};
+//var myChart = new Chart(
+//  document.getElementById('myChart'),
+//  config
+//);
+//</script>#}
+
+{#<div>
+    <canvas id="myChart"></canvas>
+</div>#}
+
+{% endblock %}
