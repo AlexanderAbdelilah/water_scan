@@ -22,6 +22,7 @@ class ApiPiezoController extends AbstractController
         $Piezodata = [];
         $Piezodate = [];
         $Piezovalue = [];
+        $Piezodate_formatted = [];
 
         $Piezo = $resultatStatements->data;
     
@@ -34,13 +35,21 @@ class ApiPiezoController extends AbstractController
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = array('piezodate' => $Piezo[$i]->date_mesure, 'piezovalue' => $Piezo[$i]->niveau_nappe_eau);
             array_push($Piezodata, $subspush);
-        }
+        };
 
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = $Piezo[$i]->date_mesure;
             array_push($Piezodate, $subspush);
             //$Piezodate = $Piezodata[$i]->piezodate;
-        }
+        };
+
+        for ($i = 0; $i <= count($Piezodate)-1; $i++) {
+            $subspush = getDate(strtotime($Piezodate[$i]));
+            array_push($Piezodate_formatted, $subspush);
+            //$Piezodate = $Piezodata[$i]->piezodate;
+        }; 
+
+        
 
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = $Piezo[$i]->niveau_nappe_eau;
@@ -61,15 +70,17 @@ class ApiPiezoController extends AbstractController
         $Piezotest2 = $Piezotest["piezovalue"];
         //dd($Piezotest2);
 
-        //return $this->render('home/index.html.twig', [
-        //    'piezo' => $Piezotest2,
-        //]); 
+        return $this->render('home/index.html.twig', [
+            'piezovalue' => $Piezovalue,
+            'piezodate'=> $Piezodate_formatted,
+            'piezo' => $Piezodata
+        ]); 
         //[
-        return new JsonResponse([
-            'piezo' => $Piezodata,
-            //'piezovalue'=> $Piezovalue,
-            //'piezodate'=> $Piezodate,
-        ]);
+        //return new JsonResponse([
+        //    //'piezo' => $Piezodata,
+        //    'piezovalue'=> $Piezovalue,
+        //    'piezodate'=> $Piezodate,
+        //]);
         
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '/assets/styles/app.css';
+import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
 
 //import * as am4charts from "@amcharts/amcharts4/charts";
@@ -54,7 +54,7 @@ didMount={async function(component) {
             {/*<canvas id="myChart" width="400" height="400"></canvas>*/}
 
             {/*<GraphAmchart/>*/}
-            <p>CIAOO BUG DE MEEEEEEEEERDE !!!!</p>
+        
 
             {/*<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
             <script src="/Applications/MAMP/htdocs/water_scan/assets/JS/ChartJS.js"></script>*/}
