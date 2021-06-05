@@ -11,7 +11,7 @@
 <div class="example-wrapper">
     <h1>Hello Twig of Piezo !! ✅</h1>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart" width="500" height="200"></canvas>
 
     {% set pvalue = []%}
     {% for p in piezo %}
@@ -20,14 +20,24 @@
 
     {% set pdate = []%}
     {% for p in piezo %}
-    {% set pdate = pdate|merge([p.piezodate|date('Y-m-d')]) %}
+    {% set pdate = pdate|merge([p.piezodate]) %}
     {% endfor %}
 
+    {% set pdate = []%}
+    {% for p in piezodate %}
+    {% set pdate = pdate|merge([p|date("Y/m/d")]) %}
+    {#{% set pdate = pdate|join('", "') %}#}
+    {#{% set pdate = pdate.format('YYYY/MM/DD') %}#}
+    {% endfor %}
 
-    {{dump(pvalue)}}
+    {#{{dump(pvalue)}}#}
     {{dump(pdate)}}
+    {{dump(piezodate)}}
 
     <script>
+
+    
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -48,6 +58,12 @@
         },
         options: {
             scales: {
+                x: [ {
+        //    display: true,
+            type: 'string',
+            
+          }
+        ],
                 y: {
                     beginAtZero: true
                 }
@@ -56,12 +72,6 @@
     });
 
     </script>
-
-    {#<ul>
-    {% for p in piezovalue %}
-    <li>{{ p }}</li>
-    </ul>
-    {% endfor %}#}
 
 </div>
 {% endblock %}

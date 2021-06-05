@@ -40,46 +40,40 @@ class ApiPiezoController extends AbstractController
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = $Piezo[$i]->date_mesure;
             array_push($Piezodate, $subspush);
-            //$Piezodate = $Piezodata[$i]->piezodate;
         };
 
         for ($i = 0; $i <= count($Piezodate)-1; $i++) {
-            $subspush = getDate(strtotime($Piezodate[$i]));
-            array_push($Piezodate_formatted, $subspush);
-            //$Piezodate = $Piezodata[$i]->piezodate;
+            $subspush = substr_replace($Piezodate[$i], '/', 4, 1);
+            $subspush_formatted = substr_replace($subspush, '/', 7, 1);
+            array_push($Piezodate_formatted, $subspush_formatted);
         }; 
-
-        
 
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = $Piezo[$i]->niveau_nappe_eau;
             array_push($Piezovalue, $subspush);
-            //$Piezovalue = $Piezodata[$i]->piezovalue;
         }
-        //mesures du 21/05/2008 au 26/05/2021
-        //dd($Piezodata);
 
-        //for ($i = 0; $i <= count($Piezo); $i++) {
-        //    dump( $Piezo[$i]->date_mesure);
-            //$subspush = array('piezodate' => $Piezo[$i]->date_mesure, 'piezovalue' => $Piezo[$i]->niveau_nappe_eau);
-            //array_push($subsendresultsOne, $subspush);
-        //}
+        //mesures du 21/05/2008 au 26/05/2021
+        
+        //dd($Piezodate_formatted);
 
         
         $Piezotest = $Piezodata[1];
         $Piezotest2 = $Piezotest["piezovalue"];
-        //dd($Piezotest2);
 
         return $this->render('home/index.html.twig', [
             'piezovalue' => $Piezovalue,
             'piezodate'=> $Piezodate_formatted,
             'piezo' => $Piezodata
         ]); 
-        //[
+
+        //Alternative for REACT routing:
+
         //return new JsonResponse([
         //    //'piezo' => $Piezodata,
         //    'piezovalue'=> $Piezovalue,
         //    'piezodate'=> $Piezodate,
+        //    'piezo' => $Piezodata
         //]);
         
     }
