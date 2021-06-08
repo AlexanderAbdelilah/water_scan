@@ -1,7 +1,8 @@
 import React from 'react';
 import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 //import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
-
+import "/Applications/MAMP/htdocs/water_scan/assets/chartjs.js";
+import ChartJS from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ChartJS.jsx";
 
 //import * as am4charts from "@amcharts/amcharts4/charts";
 //import * as am4core from "@amcharts/amcharts4/core";
@@ -33,7 +34,8 @@ export default class Piezo extends React.Component {
             {/*<canvas id="myChart" width="400" height="400"></canvas>*/}
 
             {/*<GraphAmchart/>*/}
-        
+            
+            <ChartJS/>
 
             {/*<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
             <script src="/Applications/MAMP/htdocs/water_scan/assets/JS/ChartJS.js"></script>*/}

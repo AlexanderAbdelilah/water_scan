@@ -27,10 +27,6 @@ class ApiPiezoController extends AbstractController
         $Piezo = $resultatStatements->data;
     
         //dd($Piezo[count($Piezo)-1]->date_mesure);
-
-        //foreach($Piezo as $p)
-        //    $subspush = array('piezodate' => $p->date_mesure, 'piezovalue' => $p->niveau_nappe_eau);
-        //    array_push($Piezodata, $subspush); 
         
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = array('piezodate' => $Piezo[$i]->date_mesure, 'piezovalue' => $Piezo[$i]->niveau_nappe_eau);
@@ -47,8 +43,6 @@ class ApiPiezoController extends AbstractController
         for ($i = 0; $i <= count($Piezodate)-1; $i++) {
             $subspush = substr_replace($Piezodate[$i], ':', 4, 1);
             $subspush_formatted = substr_replace($subspush, ':', 7, 1);
-
-            
             array_push($Piezodate_formatted, $subspush_formatted);
             $Piezodate_formatted_string = implode(', ', $Piezodate_formatted);
         }; 
@@ -56,7 +50,6 @@ class ApiPiezoController extends AbstractController
         for ($i = 0; $i <= count($Piezo)-1; $i++) {
             $subspush = $Piezo[$i]->niveau_nappe_eau;
             array_push($Piezovalue, $subspush);
-
             $Piezovalue_string = implode(', ', $Piezovalue);
         }
 
@@ -64,27 +57,26 @@ class ApiPiezoController extends AbstractController
         
         //dd($Piezodate_formatted);
 
-        
         $Piezotest = $Piezodata[1];
         $Piezotest2 = $Piezotest["piezovalue"];
 
-        return $this->render('home/index.html.twig', [
+        //return $this->render('home/index.html.twig', [
             //'piezovalue' => $Piezovalue,
             //'piezodate'=> $Piezodate_formatted,
             //'piezodate_string' => $Piezodate_string,
             //'piezodate_formatted_string' => $Piezodate_formatted_string,
             //'piezovalue_string' => $Piezovalue_string,
-            'piezo' => $Piezodata
-        ]); 
+        //    'piezo' => $Piezodata
+        //]); 
 
         //Alternative for REACT routing:
 
-        //return new JsonResponse([
-        //    //'piezo' => $Piezodata,
-        //    'piezovalue'=> $Piezovalue,
-        //    'piezodate'=> $Piezodate,
-        //    'piezo' => $Piezodata
-        //]);
+        return new JsonResponse([
+            //'piezo' => $Piezodata,
+            'piezovalue'=> $Piezovalue,
+            'piezodate'=> $Piezodate,
+            'piezo' => $Piezodata
+        ]);
         
     }
 
