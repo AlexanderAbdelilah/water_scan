@@ -3,26 +3,19 @@ import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 //import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
 import "/Applications/MAMP/htdocs/water_scan/assets/chartjs.js";
 import ChartJS from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ChartJS.jsx";
+import logo_vittel from "/Applications/MAMP/htdocs/water_scan/src/img/vittel-logo-1.svg";
+import icon_chart from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-Chart.svg";
+import icon_world_y from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-World-Y.svg";
+import icon_alert_g from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-Chart.svg";
 
 //import * as am4charts from "@amcharts/amcharts4/charts";
 //import * as am4core from "@amcharts/amcharts4/core";
 //import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 //import am4themes_kelly from "@amcharts/amcharts4/themes/kelly";
 
-//const data = [];
 
 export default class Piezo extends React.Component {
 
-    //constructor() {
-    //    super();
-
-    //    this.state = {
-    //        piezo: [],
-            
-    //    }
-    //}
-    
-    
 
     render(){
         
@@ -30,32 +23,86 @@ export default class Piezo extends React.Component {
         return (
             <>
 
-            {/*<ReactVis/>*/}
-            {/*<canvas id="myChart" width="400" height="400"></canvas>*/}
+            <body className="container">
+                            <div>
+                                <div>
+                                    <div className="row">
+                                        <div className="col-md-4 p-0">
+                                                <div className="card-text">
+                                                    <img src={logo_vittel} alt="logo mondelez"/>
+                                                </div>
+                                        </div>
+                                        <div className="col-md-8 mb-8">
+                                            
+                                                <div className="card-text p-3">
+                                                    <p>VITTEL - RESULTATS</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-4 p-0">
+                                        <div className="card h-100 border-0">
+                                            <div className="card-body border-dark border-right  border-bottom">
+                                                <img  src={icon_chart} alt="chiffre d'affaire"/>
+                                                <h4 className="card-title">Chiffre d'affaires 2020</h4>
+                                                <h4 className="card-title">XXXXXX (M€)</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                            
+                                    <div className="col-md-4 p-0">
+                                        <div className="card h-100 border-0">
+                                            <div className="card-body border-dark border-right border-left border-bottom">
+                                                {/*<GraphCAMondelez/>*/}
+                                            </div>
+                                        </div>
+                                    </div>
 
-            {/*<GraphAmchart/>*/}
+                                    <div className="col-md-4 p-0">
+                                        <div className="card h-100 border-0">
+                                            <div className="card-body border-dark border-left  border-bottom">
+                                                <h4 className="card-title"></h4>
+                                                {/*<Map/>*/}
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div/>
+                                    <div className="col-md-4 p-0">
+                                            <div className="card h-100 border-0">
+                                                <div className="card-body border-dark border-top ">
+                                                    <img src={icon_world_y} alt="paradis fiscaux"/>
+                                                    <h4 className="card-title">Niveau de la nappe</h4>
+                                                    <ChartJS/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 p-0">
+                                            <div className="card h-100 border-0">
+                                                <div className="card-body filiales border-dark border-right border-top ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4 p-0">
+                                            <div className="card h-100 border-0">
+                                                <div className="card-body border-dark border-left border-top ">
+                                                    <img src={icon_alert_g} alt="sanctions"/>
+                                    
+                                                    <h4 className="card-title">Sanctions</h4>
+                                                    <p className="card-text">AUCUNE</p>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </body>
             
-            <ChartJS/>
 
-            {/*<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
-            <script src="/Applications/MAMP/htdocs/water_scan/assets/JS/ChartJS.js"></script>*/}
+            
             
             </>
             
             
-            //{/*ChartJS*/}
-            //{/*<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-            //<script src="/Applications/MAMP/htdocs/water_scan/assets/chartJS.js"></script>*/}
-
-            
-            //{/*Anychart*/}
-            //{/*<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-            //<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-            //<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-            
-            //<script src="/Applications/MAMP/htdocs/water_scan/assets/chart.js"></script>*/}
-
             
 
         );

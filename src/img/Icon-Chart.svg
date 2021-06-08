@@ -1,0 +1,12 @@
+<svg id="Icon-Chart" xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+  <g id="Icon" transform="translate(-263.153 -562.321)">
+    <circle id="Ellipse_40" data-name="Ellipse 40" cx="45" cy="45" r="45" transform="translate(263.153 562.321)" fill="#2f392b"/>
+  </g>
+  <g id="Groupe_222" data-name="Groupe 222" transform="translate(-11359 -1988)">
+    <g id="chart" transform="translate(11388 2018)">
+      <path id="Tracé_319" data-name="Tracé 319" d="M2,12V26.515H8.451V12Z" transform="translate(-2 2.515)" fill="#e7e9d4" fill-rule="evenodd"/>
+      <path id="Tracé_320" data-name="Tracé 320" d="M10,3V32.03h6.451V3Z" transform="translate(2.902 -3)" fill="#e7e9d4" fill-rule="evenodd"/>
+      <path id="Tracé_321" data-name="Tracé 321" d="M18,7V29.579h6.451V7Z" transform="translate(7.805 -0.549)" fill="#e7e9d4" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

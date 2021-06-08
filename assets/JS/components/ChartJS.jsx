@@ -23,15 +23,13 @@ export default class ChartJS extends React.Component {
                 piezovalue: response.piezovalue,
             })
         
-
-
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: this.state.piezodate,
             datasets: [{
-                label: '# of Votes',
+                label: 'Niveau de la nappe',
                 data: this.state.piezovalue,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

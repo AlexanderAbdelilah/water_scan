@@ -1,0 +1,12 @@
+<svg id="Icon-Alert" xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+  <g id="Icon" transform="translate(-263.153 -562.321)">
+    <circle id="Ellipse_40" data-name="Ellipse 40" cx="45" cy="45" r="45" transform="translate(263.153 562.321)" fill="#2f392b"/>
+  </g>
+  <g id="Groupe_223" data-name="Groupe 223" transform="translate(-11622.482 -1861)">
+    <g id="spam" transform="translate(11651.482 1890)">
+      <path id="Tracé_345" data-name="Tracé 345" d="M26.111,3,35,11.889V26.111L26.111,35H11.889L3,26.111V11.889L11.889,3Z" transform="translate(-3 -3)" fill="#e7e9d4" stroke="#e7e9d4" stroke-linejoin="round" stroke-width="1" fill-rule="evenodd"/>
+      <path id="Tracé_346" data-name="Tracé 346" d="M12,8v7.831" transform="translate(4 0.525)" fill="#2f392b" stroke="#2f392b" stroke-linecap="square" stroke-width="3"/>
+      <path id="Tracé_347" data-name="Tracé 347" d="M11.979,16.958A.979.979,0,1,0,11,15.979.979.979,0,0,0,11.979,16.958Z" transform="translate(4.021 6.697)" fill="#2f392b" stroke="#2f392b" stroke-linecap="square" stroke-width="3" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

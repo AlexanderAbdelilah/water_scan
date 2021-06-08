@@ -17,7 +17,7 @@ class ApiPiezoController extends AbstractController
     public function index(): Response
     {
 
-        $resultatStatements = $this->getResultApi('http://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?code_bss=06252X0063%2FPZ1&size=5000');
+        $resultatStatements = $this->getResultApi('http://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?bss_id=BSS000YRNE%2FPZ1&size=5000');
 
         $Piezodata = [];
         $Piezodate = [];
