@@ -1,6 +1,7 @@
 import React from 'react';
 import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
-import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
+//import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
+
 
 //import * as am4charts from "@amcharts/amcharts4/charts";
 //import * as am4core from "@amcharts/amcharts4/core";
@@ -27,30 +28,8 @@ export default class Piezo extends React.Component {
 
         return (
             <>
-            {/*<Component
-initialState={{ dataLoadingStatus: 'loading', chartData: [] }}
-didMount={async function(component) {
-    const response = 
-    await fetch('http://localhost:8000/api/piezo')
-            .then(res=>res.json())
-            .then(res=>this.setState({chartData:{apiResponse:res}}))
-    console.log(res);
 
-    const niveauNappe = Object.values(res.niveau_eau_nappe)
-    const dateMesure = Object.keys(res.date_mesure)
-    const chartData = [['Niveau Nappe', 'Date Mesure']]
-    for (let i = 0; i < dateMesure.length; i += 1) {
-    chartData.push([dateMesure[i], niveauNappe[i]])
-    }
-    component.setState({
-    dataLoadingStatus: 'ready',
-    chartData: chartData,
-    });
-}}
-/>
-            <Component/>*/}
-
-            <ReactVis/>
+            {/*<ReactVis/>*/}
             {/*<canvas id="myChart" width="400" height="400"></canvas>*/}
 
             {/*<GraphAmchart/>*/}

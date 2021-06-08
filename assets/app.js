@@ -12,7 +12,7 @@ import './styles/app.css';
 import React from "react";
 import ReactDOM from 'react-dom';
 import App from "/Applications/MAMP/htdocs/water_scan/assets/JS/App.jsx";
-
+//import "/Applications/MAMP/htdocs/water_scan/assets/chartjs.js";
 //// start the Stimulus application
 //import './bootstrap';
 
