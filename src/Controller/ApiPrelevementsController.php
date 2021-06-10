@@ -23,24 +23,25 @@ class ApiPrelevementsController extends AbstractController
         //$Piezodate = [];
         //$Piezovalue = [];
         //$Piezodate_formatted = [];
-        $p_vittel = [];
+        $p_vittel_OPR0000588819 = [];
+        $p_vittel_OPR0000588819_gps = [];
 
         $p_results = $results->data;
-
         //dd($p_results);
+
+        $subspush = array('longitude' => $p_results[0]->longitude, 'latitude' => $p_results[0]->latitude);
+        array_push($p_vittel_OPR0000588819_gps, $subspush);
+        
+        dd($p_vittel_OPR0000588819_gps);
 
         for ($i = 0; $i <= count($p_results)-1; $i++) {
             $subspush = array('p_year' => $p_results[$i]->annee, 'p_value' => $p_results[$i]->volume, 'p_city' => $p_results[$i]->nom_commune);
-            array_push($p_vittel, $subspush);
+            array_push($p_vittel_OPR0000588819, $subspush);
         };
         //$Prelevements_volume = $resultatStatements->data->volume;
         //$Prelevements_year = $resultatStatements->data->annee;
 
-        dump($p_vittel);
-
-        //dump($Prelevements_volume);
-
-        //dump($Prelevements_year);
+        dump($p_vittel_OPR0000588819);
 
         die;
 
