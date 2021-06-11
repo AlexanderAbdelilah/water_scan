@@ -29,10 +29,12 @@ class ApiPrelevementsController extends AbstractController
         $p_results = $results->data;
         //dd($p_results);
 
+        //get the year of measure and result value for each pumping station:
+
         $subspush = array('longitude' => $p_results[0]->longitude, 'latitude' => $p_results[0]->latitude);
         array_push($p_vittel_OPR0000588819_gps, $subspush);
         
-        dd($p_vittel_OPR0000588819_gps);
+        //dd($p_vittel_OPR0000588819_gps);
 
         for ($i = 0; $i <= count($p_results)-1; $i++) {
             $subspush = array('p_year' => $p_results[$i]->annee, 'p_value' => $p_results[$i]->volume, 'p_city' => $p_results[$i]->nom_commune);
@@ -42,8 +44,6 @@ class ApiPrelevementsController extends AbstractController
         //$Prelevements_year = $resultatStatements->data->annee;
 
         dump($p_vittel_OPR0000588819);
-
-        die;
 
         //API urls for Nestle PUMPING STATIONS in Vittel
         //https://hubeau.eaufrance.fr/api/vbeta/prelevements/chroniques?code_commune_insee=&code_ouvrage=OPR0000588819&format=json&size=20
@@ -66,7 +66,7 @@ class ApiPrelevementsController extends AbstractController
         //https://hubeau.eaufrance.fr/api/vbeta/prelevements/chroniques?code_commune_insee=&code_ouvrage=OPR0000001924&format=json&size=20
         //https://hubeau.eaufrance.fr/api/vbeta/prelevements/chroniques?code_commune_insee=&code_ouvrage=OPR0000002100&format=json&size=20
 
-
+        //Twig routing:
         //return $this->render('home/index.html.twig', [
             //'piezovalue' => $Piezovalue,
             //'piezodate'=> $Piezodate_formatted,
@@ -77,9 +77,9 @@ class ApiPrelevementsController extends AbstractController
         //]); 
 
         //Alternative for REACT routing:
-
         return new JsonResponse([
-            'p_vittel' => $p_vittel,
+            'p_vittel' => $p_vittel_OPR0000588819,
+            'p_vittel_OPR0000588819_gps' => $p_vittel_OPR0000588819_gps,
             //'piezovalue'=> $Piezovalue,
             //'piezodate'=> $Piezodate,
             //'piezo' => $Piezodata

@@ -1,8 +1,9 @@
 import React from 'react';
-import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 //import ReactVis from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ReactVis.jsx";
 import "/Applications/MAMP/htdocs/water_scan/assets/chartjs.js";
+import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 import ChartJS from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/ChartJS.jsx";
+import Mapbox from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/Mapbox.jsx";
 import logo_vittel from "/Applications/MAMP/htdocs/water_scan/src/img/vittel-logo-1.svg";
 import icon_chart from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-Chart.svg";
 import icon_world_y from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-World-Y.svg";
@@ -12,7 +13,6 @@ import icon_alert_g from "/Applications/MAMP/htdocs/water_scan/src/img/Icon-Char
 //import * as am4core from "@amcharts/amcharts4/core";
 //import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 //import am4themes_kelly from "@amcharts/amcharts4/themes/kelly";
-
 
 export default class Piezo extends React.Component {
 
@@ -63,7 +63,7 @@ export default class Piezo extends React.Component {
                                         <div className="card h-100 border-0">
                                             <div className="card-body border-dark border-left  border-bottom">
                                                 <h4 className="card-title"></h4>
-                                                {/*<Map/>*/}
+                                                <Mapbox/>
                                             </div>
                                         </div>
                                     </div>

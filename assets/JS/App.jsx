@@ -5,8 +5,7 @@ BrowserRouter, Route, Switch
 import Piezo from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/Piezo.jsx";
 import Home from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/Home.jsx";
 import Header from "/Applications/MAMP/htdocs/water_scan/assets/JS/components/Header.jsx";
-import '/assets/styles/app.css';
-
+import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 
 export default class App extends React.Component {
 render() {

@@ -8,7 +8,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 //import './styles/app.css';
 
-import './styles/app.css';
+import '/Applications/MAMP/htdocs/water_scan/assets/styles/app.css';
 import React from "react";
 import ReactDOM from 'react-dom';
 import App from "/Applications/MAMP/htdocs/water_scan/assets/JS/App.jsx";

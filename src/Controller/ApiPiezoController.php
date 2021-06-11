@@ -17,12 +17,31 @@ class ApiPiezoController extends AbstractController
     public function index(): Response
     {
 
-        $resultatStatements = $this->getResultApi('http://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?bss_id=BSS000YRNE%2FPZ1&size=5000');
+        //Info page about chosen measurement station: http://services.ades.eaufrance.fr/pointeau/03383X0147/F1
+
+        $resultatStatements = $this->getResultApi('http://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?code_bss=03383X0147/F1&size=5000');
+
+        //Alternative code_bss for other measuring stations in and around Vittel:
+        //03383X0051/V => 2010 - 2012
+        //03383X0052/III => 1959 - 2012
+        //03383X0095/F2 => 2010 - 2012
+        //03383X0042/VII => 2010 - 2012
+        //03382X0008/3 => 2010 - 2012
+        //03382X0018/F2 => 2010 - 2012
+        //03382X0043/F2 => 1967 - 2012
+        //03382X0139/P401 => 1994
+        //03383X0147/F1 => 2017 - 2021 (nappe Grès Trias Inférieur)
+        //03382X0019/F2 => 1956 - 1979
+        //03382X0016/F1 => 1976 - 1980
+
+        //BSS codes of water measuring stations come from https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/map
 
         $Piezodata = [];
         $Piezodate = [];
         $Piezovalue = [];
+        //$Piezovalue_string = [];
         $Piezodate_formatted = [];
+        //$Piezodate_formatted_string = [];
 
         $Piezo = $resultatStatements->data;
     
@@ -57,8 +76,8 @@ class ApiPiezoController extends AbstractController
         
         //dd($Piezodate_formatted);
 
-        $Piezotest = $Piezodata[1];
-        $Piezotest2 = $Piezotest["piezovalue"];
+        //$Piezotest = $Piezodata[1];
+        //$Piezotest2 = $Piezotest["piezovalue"];
 
         //return $this->render('home/index.html.twig', [
             //'piezovalue' => $Piezovalue,

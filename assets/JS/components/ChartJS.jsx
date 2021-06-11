@@ -9,6 +9,8 @@ export default class ChartJS extends React.Component {
 
         this.state = {
             piezo: [],
+            piezodate: [],
+            piezovalue: [],
         }
     }
 
@@ -18,7 +20,6 @@ export default class ChartJS extends React.Component {
             //to check wether the data is properly fetched :
             console.log(response);
             this.setState({
-                piezo: response.piezo.piezodate,
                 piezodate: response.piezodate,
                 piezovalue: response.piezovalue,
             })
@@ -29,7 +30,7 @@ export default class ChartJS extends React.Component {
         data: {
             labels: this.state.piezodate,
             datasets: [{
-                label: 'Niveau de la nappe',
+                label: 'Niveau de la nappe "Grès du Trias Inférieur"',
                 data: this.state.piezovalue,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
