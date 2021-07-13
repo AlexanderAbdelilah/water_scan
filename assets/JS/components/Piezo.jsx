@@ -23,7 +23,7 @@ export default class Piezo extends React.Component {
         return (
             <>
 
-            <body className="container">
+            <main className="container">
                             <div>
                                 <div>
                                     <div className="row">
@@ -95,7 +95,7 @@ export default class Piezo extends React.Component {
                                         </div>
                                     </div>
                             </div>
-                        </body>
+                        </main>
             
 
             

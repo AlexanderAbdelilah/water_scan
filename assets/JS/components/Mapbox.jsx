@@ -43,6 +43,7 @@ export default class Mapbox extends React.Component{
             zoom: 9.56,
             p_vittel_OPR0000588819_longitude: [],
             p_vittel_OPR0000588819_latitude: [],
+            p_vittel_OPR0000588819: []
         };
         this.mapContainer = React.createRef();
         };
@@ -52,9 +53,13 @@ export default class Mapbox extends React.Component{
         fetch(`http://localhost:8000/api/prelevements`).then(response => response.json()).then(response => {
             //to check wether the data is properly fetched :
             console.log(response.p_vittel_OPR0000588819_gps[0]);
+            console.log(response.p_vittel_OPR0000588819[7].p_year);
             this.setState({
                 p_vittel_OPR0000588819_longitude: response.p_vittel_OPR0000588819_gps[0]['longitude'],
                 p_vittel_OPR0000588819_latitude: response.p_vittel_OPR0000588819_gps[0]['latitude'],
+                p_vittel_OPR0000588819_year: response.p_vittel_OPR0000588819[7].p_year,
+                p_vittel_OPR0000588819_value: response.p_vittel_OPR0000588819[7].p_value,
+                p_vittel_OPR0000588819: response.p_vittel_OPR0000588819
             })
             //console.log(p_vittel_OPR0000588819_longitude);
             //console.log(p_vittel_OPR0000588819_latitude);
@@ -63,60 +68,87 @@ export default class Mapbox extends React.Component{
 
         const { lng, lat, zoom } = this.state;
         
-        const map = new mapboxgl.Map({
-        container: this.mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [lng, lat],
-        zoom: zoom
-        });
+        
 
-        var marker = new mapboxgl.Marker()
-            .setLngLat([30.5, 50.5])
-            .addTo(map);
+        //var marker = new mapboxgl.Marker()
+        //    .setLngLat([30.5, 50.5])
+        //    .addTo(map);
 
-        var geojson = {
-            type: 'FeatureCollection',
-            features: [{
-                type: 'Feature',
-                geometry: {
-                type: 'Point',
-                coordinates: [this.state.p_vittel_OPR0000588819_latitude, this.state.p_vittel_OPR0000588819_longitude]
-                },
-                properties: {
-                title: 'Mapbox',
-                description: 'Vittel'
-                }
-            },
+        var geojson = [];
+
+        //for (let p in p_vittel_OPR0000588819) {
+            
+        geojson.push(
             {
-                type: 'Feature',
-                geometry: {
-                type: 'Point',
-                coordinates: [2.415447, 46.752976]
-                },
-                properties: {
-                title: 'Mapbox',
-                description: 'San Francisco, California'
-                }
-            }]
-            };
+                type: 'FeatureCollection',
+                features: [{
+                    type: 'Feature',
+                    geometry: {
+                    type: 'Point',
+                    coordinates: [this.state.p_vittel_OPR0000588819_longitude, this.state.p_vittel_OPR0000588819_latitude]
+                    },
+                    properties: {
+                    title: 'Prélèvements',
+                    description: 'Année : ' + this.state.p_vittel_OPR0000588819_year + ' M3 : ' + this.state.p_vittel_OPR0000588819_value
+                    }
+                }]
+            });
+        
+            const map = new mapboxgl.Map({
+                container: this.mapContainer.current,
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [lng, lat],
+                zoom: zoom
+                });
 
         // add markers to map
         geojson.features.forEach(function(marker) {
 
-        // create a HTML element for each feature
-        var el = document.createElement('div');
-        el.className = 'marker';
-
-        // make a marker for each feature and add to the map
-        new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+    
+            // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
-            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-            .addTo(map);
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                .addTo(map);
+    
+            });
 
-        });
+
+
+        //};
+                
+        //  }
+        //{
+        //    type: 'FeatureCollection',
+        //    features: [{
+        //        type: 'Feature',
+        //        geometry: {
+        //        type: 'Point',
+        //        coordinates: [this.state.p_vittel_OPR0000588819_latitude, this.state.p_vittel_OPR0000588819_longitude]
+        //        },
+        //        properties: {
+        //        title: 'Mapbox',
+        //        description: 'Vittel'
+        //        }
+        //    },
+        //    {
+        //        type: 'Feature',
+        //        geometry: {
+        //        type: 'Point',
+        //        coordinates: [2.415447, 46.752976]
+        //        },
+        //        properties: {
+        //        title: 'Mapbox',
+        //        description: 'this.state.p_vittel_OPR0000588819'
+        //        }
+        //    }]
+        //    };
+
+        
 
         map.on('move', () => {
             this.setState({
@@ -125,8 +157,6 @@ export default class Mapbox extends React.Component{
                 zoom: map.getZoom().toFixed(2)
             });
             });
-
-        
         }
 
     render(){
